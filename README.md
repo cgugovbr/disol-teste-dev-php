@@ -2,7 +2,7 @@
 
 Este é um teste de PHP destinado a novos desenvolvedores. O objetivo é criar um CRUD de clientes utilizando o framework Laravel (PHP) e git.
 
-> Este repositório foi inicializado com o Laravel versão 11 `composer create-project laravel/laravel:^11.0 example-app`
+> Este repositório foi inicializado com o Laravel versão 11 `composer create-project laravel/laravel example-app`
 
 ## Instruções
 
