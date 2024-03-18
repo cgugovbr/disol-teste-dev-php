@@ -2,7 +2,9 @@
 
 Este é um teste de PHP destinado a novos desenvolvedores. O objetivo é criar um CRUD de clientes utilizando o framework Laravel (PHP) e git.
 
-> Este repositório foi inicializado com o Laravel versão 11 `composer create-project laravel/laravel disol-teste-dev-php`
+> Este repositório foi inicializado com o Laravel versão 10
+> 
+> `composer create-project laravel/laravel disol-teste-dev-php`
 
 ## Instruções
 
