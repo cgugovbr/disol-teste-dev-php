@@ -1,64 +1,53 @@
-# Teste de PHP para Desenvolvedores
+#Relatório do Teste de PHP para Desenvolvedores
 
-Este é um teste de PHP destinado a novos desenvolvedores. O objetivo é criar um CRUD de clientes utilizando o framework Laravel (PHP) e git.
+##Configuração do Banco de Dados
 
-> Este repositório foi inicializado com o Laravel versão 10
-> 
-> `composer create-project laravel/laravel disol-teste-dev-php`
+O primeiro passo foi instalar e configurar o banco de dados MariaDB/MySQL para a aplicação. A configuração do banco de dados é um passo crucial no desenvolvimento de qualquer aplicação web, pois é onde os dados dos usuários serão armazenados.
 
-## Instruções
+##Clonagem do Repositório
 
-1. Clone este repositório para o seu ambiente de desenvolvimento:
+Após a configuração do banco de dados, o repositório foi clonado a partir do GitHub usando o comando:
 
-2. Crie uma branch com o seu nome para trabalhar:
+git clone https://github.com/cgugovbr/disol-teste-dev-php.git
 
-3. Implemente as funcionalidades do CRUD de clientes conforme especificado abaixo.
+##Criação do Modelo
 
-4. Adicione, comite e faça push das suas alterações para a sua branch:
+O próximo passo foi criar o modelo Client. Este modelo representa a entidade Client na base de dados e define os atributos que podem ser preenchidos:
 
-> Faça quantos commits quiser em sua branch
+PHP
 
-5. Abra um Pull Request (PR) para a branch principal deste repositório.
+<?php
 
-## Funcionalidades do CRUD de Clientes
+namespace App\Models;
 
-O CRUD de clientes deve incluir as seguintes operações:
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-### Create (Criar)
+class Client extends Model
+{
+    protected $table = "clients";
+    protected $fillable = [
+        'nome', 'telefones', 'cpf', 'data_aniversario', 'endereco', 'emails'
+    ];
+    use HasFactory;
+}
 
-- Permitir a adição de um novo cliente com os seguintes dados:
-  - Nome
-  - Telefones
-  - CPF
-  - Data de Aniversário
-  - Endereço
-  - Emails
+##Criação do Controlador
 
-### Read (Ler)
+Após a criação do modelo, o próximo passo foi criar o controlador ClienteController. Este controlador é responsável por gerenciar as operações CRUD para os clientes.
 
-- Exibir a lista de todos os clientes cadastrados.
-- Permitir a visualização dos detalhes de um cliente específico.
+##Criação das Views
 
-### Update (Atualizar)
+Após a criação do controlador, foram criadas quatro views: index, create, edit e show. Essas views são responsáveis por exibir a interface do usuário para as operações CRUD.
 
-- Permitir a edição dos dados de um cliente existente.
+##Criação das Rotas
 
-### Delete (Excluir)
+Finalmente, as rotas para a aplicação foram criadas. As rotas são responsáveis por mapear as URLs da aplicação para os métodos do controlador ClienteController.
 
-- Permitir a exclusão de um cliente da base de dados.
+##Resolução de Problemas com a Renderização das Views
 
-## Tecnologias Utilizadas
+Depois de configurar o banco de dados e clonar o repositório do GitHub, você criou o modelo, o controlador, as views e as rotas. No entanto, ao tentar acessar a view create, você percebeu que as views não estavam sendo renderizadas corretamente. Em vez de exibir os formulários, as páginas estavam em branco.
 
-- PHP
-- Laravel
-- git
-- Banco de Dados (MySQL, Postgres ou Sqlite
+Este problema ocorreu porque o arquivo disol-teste-dev-php/resources/views/layouts/app.blade.php não estava disponível no repositório do GitHub. Este arquivo é o layout principal da aplicação, que é estendido pelas outras views. A ausência deste arquivo fez com que as páginas não fossem renderizadas corretamente.
 
-## Observações
-
-- Certifique-se de seguir as boas práticas de desenvolvimento de software.
-- Comente seu código sempre que necessário para explicar a lógica por trás das implementações.
-- Utilize nomes de variáveis, funções e classes descritivos.
-- Fique à vontade para adicionar qualquer funcionalidade adicional que julgar relevante.
-
-Boa sorte e divirta-se codificando!
+A resolução desse problema envolveu a criação do arquivo app.blade.php no diretório correto. Isso permitiu que as views fossem renderizadas corretamente.
